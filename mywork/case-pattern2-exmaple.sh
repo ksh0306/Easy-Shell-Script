@@ -6,26 +6,26 @@ clear
 cat <<- _EOF_
 	Please Select:
 
-	1. Display System Information
-	2. Display Disk Space
-	3. Display Home Space Utilization
-	0. Quit	
+	A. Display System Information
+	B. Display Disk Space
+	C. Display Home Space Utilization
+	Q. Quit	
 _EOF_
 read -p "Enter selection [0-3] > "
 	
 case $REPLY in
-	0)
+	q|Q|0)
 		echo "Program teminated."
 		exit
 		;;
-	1)
+	a|A|1)
 		echo "Hostname: $HOSTNAME"
 		uptime
 		;;
-	2)
+	b|B|2)
 		df -h
 		;;
-	3)
+	c|C|3)
 		if [[ $(id -u) -eq 0 ]]; then
 			echo "Home Space Utilization (All Users)";
 			du -sh /home/*;
